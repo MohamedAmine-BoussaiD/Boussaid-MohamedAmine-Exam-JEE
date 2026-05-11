@@ -1,6 +1,7 @@
 package com.sdia.backend.services;
 
 
+import com.sdia.backend.dtos.MotoDTO;
 import com.sdia.backend.dtos.VehiculeDTO;
 import com.sdia.backend.dtos.VoitureDTO;
 import com.sdia.backend.entities.Moto;
@@ -24,7 +25,7 @@ public class VehiculeServiceImpl implements VehiculeService {
     private VehiculeMapper vehiculeMapper;
 
     @Override
-    public List<VehiculeDTO> getVoitures() {
+    public List<VehiculeDTO> getVehicules() {
         List<Vehicule> vehicules = vehiculeRepository.findAll();
         List<VehiculeDTO> vehiculeDTOList= vehicules.stream()
                 .map(vehicule -> {
@@ -39,7 +40,14 @@ public class VehiculeServiceImpl implements VehiculeService {
     }
 
     @Override
-    public VoitureDTO saveVoiture(Voiture voiture) {
-        return
+    public VoitureDTO saveVoiture(VoitureDTO voitureDTO) {
+        Voiture voiture = vehiculeMapper.fromVoitureDTOtoVoiture(voitureDTO);
+        return  vehiculeMapper.fromVoitureToVoitureDTO(vehiculeRepository.save(voiture) );
+    }
+
+    @Override
+    public MotoDTO saveMoto(MotoDTO motoDTO) {
+        Moto moto = vehiculeMapper.fromMotoDTOtoMoto(motoDTO);
+        return  vehiculeMapper.fromMotoToMotoDTO(vehiculeRepository.save(moto) );
     }
 }

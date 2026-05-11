@@ -17,7 +17,7 @@ import java.util.Date;
 
 
 @Data
-public class MotoDTO extends Vehicule {
+public class MotoDTO extends VehiculeDTO {
 
     private Long id ;
     private String marque ;
