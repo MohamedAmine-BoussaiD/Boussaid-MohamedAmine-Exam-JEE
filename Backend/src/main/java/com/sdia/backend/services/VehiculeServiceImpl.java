@@ -51,3 +51,6 @@ public class VehiculeServiceImpl implements VehiculeService {
         return  vehiculeMapper.fromMotoToMotoDTO(vehiculeRepository.save(moto) );
     }
 }
+
+
+
