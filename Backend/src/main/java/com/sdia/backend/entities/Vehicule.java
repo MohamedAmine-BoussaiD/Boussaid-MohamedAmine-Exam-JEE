@@ -22,6 +22,7 @@ public class Vehicule {
     private String matricule ;
     private double prixParJour ;
     private Date dateMiseEnService;
+    @Enumerated(EnumType.STRING)
     private Statut statut ;
 
     @ManyToOne
