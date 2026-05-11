@@ -1,4 +1,22 @@
 package com.sdia.backend.entities;
 
-public class Voiture {
+import com.sdia.backend.enums.BoiteVitesse;
+import com.sdia.backend.enums.TypeCarburant;
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@DiscriminatorValue("Voiture")
+
+@Data @NoArgsConstructor @AllArgsConstructor
+public class Voiture  extends Vehicule{
+
+    private Integer nombrePortes;
+    private TypeCarburant typeCarburant;
+    private BoiteVitesse boiteVitesse;
+
+
 }
